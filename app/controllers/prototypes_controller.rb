@@ -10,7 +10,6 @@ class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
     @comment = Comment.new
-    #@comments = Comment.find_by(id:params[:id], prototype_id: params[:prototype_id]) 
     @comments = @prototype.comments.includes(:user)
     #@user = User.find_by(id: @prototype.user_id)
   end
